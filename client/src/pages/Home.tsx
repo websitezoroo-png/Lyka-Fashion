@@ -163,7 +163,7 @@ export default function Home() {
     heroTitle: 'ELEGANT ATTIRE',
     heroSubtitle: 'Bandipora, J&K — Since 2014',
     heroDescription: 'TRADITIONAL AARI WORK MEETS MODERN SILHOUETTES FOR THE CONTEMPORARY WOMAN.',
-    backgroundVideoUrl: '/manus-storage/70bdf080-3cd6-11f1-b4d6-6d9b715d3621_50da3163.mp4',
+    backgroundVideoUrl: '/videos/background.mp4',
   });
 
   const [products, setProducts] = useState<Product[]>([
