@@ -758,32 +758,50 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-widest">{websiteSettings.websiteName}</div>
-          <div className="flex gap-6 items-center">
-            {user && (
-              <button onClick={() => setShowOrdersPanel(!showOrdersPanel)} className="hover:text-gray-300 transition flex items-center gap-2">
-                <Package size={20} />
-                <span className="text-sm">{orders.length}</span>
-              </button>
-            )}
-            <button onClick={() => setShowCart(!showCart)} className="relative hover:text-gray-300 transition">
-              <ShoppingBag size={24} />
+      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 text-black">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo - Left */}
+          <div className="text-xl font-bold tracking-tight text-[#B8860B]">
+            {websiteSettings.websiteName} FASHION
+          </div>
+
+          {/* Navigation Links - Center */}
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider text-gray-600">
+            <a href="#" className="hover:text-black transition">Home</a>
+            <a href="#collections" className="hover:text-black transition">Collections</a>
+            <a href="#about" className="hover:text-black transition">About</a>
+            <a href="#contact" className="hover:text-black transition">Contact</a>
+          </div>
+
+          {/* Icons - Right */}
+          <div className="flex gap-5 items-center text-gray-600">
+            <button className="hover:text-black transition">
+              <MessageCircle size={18} />
+            </button>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-black transition">
+              <span className="font-bold text-lg">f</span>
+            </a>
+            <a href="https://instagram.com/lyka.fashion" target="_blank" rel="noreferrer" className="hover:text-black transition">
+              <Instagram size={18} />
+            </a>
+            
+            <div className="h-4 w-px bg-gray-200 mx-1" />
+
+            <button onClick={() => setShowCart(!showCart)} className="relative hover:text-black transition">
+              <ShoppingBag size={20} />
               {cart.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-white text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                <span className="absolute -top-2 -right-2 bg-[#B8860B] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
                   {cart.length}
                 </span>
               )}
             </button>
+
             {user && (
-              <div className="flex gap-2 items-center">
-                <span className="text-sm">{user.name}</span>
-                <button onClick={handleLogout} className="p-2 hover:bg-white/10 rounded transition">
-                  <LogOut size={20} />
-                </button>
-              </div>
+              <button onClick={handleLogout} className="hover:text-black transition">
+                <LogOut size={18} />
+              </button>
             )}
+
             <button 
               onClick={() => {
                 if (isAdmin) {
@@ -792,10 +810,9 @@ export default function Home() {
                   setShowAdminLogin(true);
                 }
               }}
-              className="p-2 hover:bg-white/10 rounded transition"
-              title={isAdmin ? "Admin Panel" : "Admin Login"}
+              className="hover:text-black transition"
             >
-              <Settings size={20} />
+              <Settings size={18} />
             </button>
           </div>
         </div>
@@ -803,13 +820,13 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-        <video
-          autoPlay
-          muted
-          loop
-          className="absolute inset-0 w-full h-full object-cover grayscale brightness-50"
-          src={websiteSettings.backgroundVideoUrl}
-        />
+          <video
+            autoPlay
+            muted
+            loop
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.85]"
+            src={websiteSettings.backgroundVideoUrl}
+          />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
