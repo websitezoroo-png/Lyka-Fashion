@@ -767,10 +767,10 @@ export default function Home() {
 
           {/* Navigation Links - Center */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider text-gray-600">
-            <a href="#" className="hover:text-black transition">Home</a>
-            <a href="#collections" className="hover:text-black transition">Collections</a>
-            <a href="#about" className="hover:text-black transition">About</a>
-            <a href="#contact" className="hover:text-black transition">Contact</a>
+            <a href="/" className="hover:text-black transition">Home</a>
+            <a href="/collections" className="hover:text-black transition">Collections</a>
+            <a href="/about" className="hover:text-black transition">About</a>
+            <a href="/contact" className="hover:text-black transition">Contact</a>
           </div>
 
           {/* Icons - Right */}
@@ -2096,18 +2096,18 @@ export default function Home() {
           <div>
             <h4 className="font-semibold mb-6 text-black uppercase tracking-wider text-sm">Quick Links</h4>
             <ul className="space-y-3 text-gray-500 text-sm">
-              <li><a href="#" className="hover:text-[#B8860B] transition">Home</a></li>
-              <li><a href="#collections" className="hover:text-[#B8860B] transition">Collections</a></li>
-              <li><a href="#products" className="hover:text-[#B8860B] transition">Shop All</a></li>
-              <li><a href="#about" className="hover:text-[#B8860B] transition">Our Story</a></li>
+              <li><a href="/" className="hover:text-[#B8860B] transition">Home</a></li>
+              <li><a href="/collections" className="hover:text-[#B8860B] transition">Collections</a></li>
+              <li><a href="/collections" className="hover:text-[#B8860B] transition">Shop All</a></li>
+              <li><a href="/about" className="hover:text-[#B8860B] transition">Our Story</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-6 text-black uppercase tracking-wider text-sm">Connect With Us</h4>
             <div className="flex gap-5">
               <a href="https://instagram.com/lyka.fashion" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#B8860B] transition"><Instagram size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-[#B8860B] transition"><MessageCircle size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-[#B8860B] transition font-bold text-lg">f</a>
+              <a href="/" className="text-gray-400 hover:text-[#B8860B] transition"><MessageCircle size={20} /></a>
+              <a href="/" className="text-gray-400 hover:text-[#B8860B] transition font-bold text-lg">f</a>
             </div>
             <div className="mt-8">
               <p className="text-gray-500 text-sm">Bandipora, Jammu & Kashmir</p>
