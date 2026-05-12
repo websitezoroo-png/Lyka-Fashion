@@ -160,9 +160,9 @@ export default function Home() {
   // Data State
   const [websiteSettings, setWebsiteSettings] = useState({
     websiteName: 'LYKA',
-    heroTitle: 'ELEGANT ATTIRE',
-    heroSubtitle: 'Bandipora, J&K — Since 2014',
-    heroDescription: 'TRADITIONAL AARI WORK MEETS MODERN SILHOUETTES FOR THE CONTEMPORARY WOMAN.',
+    heroTitle: 'Lyka Fashion',
+    heroSubtitle: 'Crafted for Eternity',
+    heroDescription: 'Discover our exquisite collection of luxury fashion, where traditional elegance meets modern craftsmanship. Each piece tells a story of sophistication and grace.',
     backgroundVideoUrl: '/videos/background.mp4',
   });
 
@@ -819,15 +819,15 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#FDFBF7]">
           <video
             autoPlay
             muted
             loop
-            className="absolute inset-0 w-full h-full object-cover brightness-[0.85]"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
             src={websiteSettings.backgroundVideoUrl}
           />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/20" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.div
@@ -835,25 +835,35 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-gray-300 text-sm mb-4 tracking-widest">{websiteSettings.heroSubtitle}</p>
-            <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-wider" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight text-black" style={{ fontFamily: 'Playfair Display, serif' }}>
               {websiteSettings.heroTitle}
             </h1>
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">{websiteSettings.heroDescription}</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition inline-flex items-center gap-2"
-            >
-              Explore Collection <ArrowUpRight size={20} />
-            </motion.button>
+            <p className="text-gray-600 text-xl mb-4 italic font-medium tracking-wide">{websiteSettings.heroSubtitle}</p>
+            <p className="text-gray-500 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">{websiteSettings.heroDescription}</p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-10 py-4 bg-[#B8860B] text-white font-medium rounded-md hover:bg-[#966d09] transition-all shadow-lg inline-flex items-center gap-2"
+              >
+                Explore Collection
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-10 py-4 bg-white/80 backdrop-blur-sm text-gray-700 font-medium rounded-md border border-gray-200 hover:bg-white transition-all inline-flex items-center gap-2"
+              >
+                Contact Us
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Featured Collections Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section id="collections" className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -861,8 +871,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Collections</h2>
-            <p className="text-gray-400 text-lg">Discover our curated selections of traditional and contemporary designs</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>Explore Our Collections</h2>
+            <p className="text-gray-500 text-lg">Each collection is carefully curated to bring out the beauty and elegance in every moment</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -920,7 +930,7 @@ export default function Home() {
       </section>
 
       {/* Products Section with Search and Filter */}
-      <section id="products" className="py-20 px-4 bg-black">
+      <section id="products" className="py-24 px-4 bg-[#FDFBF7]">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -928,25 +938,25 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Collection</h2>
-            <p className="text-gray-400 text-lg">Handcrafted elegance with traditional Aari work</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Pieces</h2>
+            <p className="text-gray-500 text-lg">Handcrafted elegance with traditional Aari work</p>
           </motion.div>
 
           {/* Search and Filter Bar */}
           <div className="mb-8 flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
               <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input
+                <input
                 type="text"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white/10 border border-white/20 rounded-lg px-10 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition"
+                className="w-full bg-white border border-gray-200 rounded-lg px-10 py-3 text-black placeholder-gray-400 focus:outline-none focus:border-[#B8860B] transition shadow-sm"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg transition flex items-center gap-2"
+              className="px-6 py-3 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg transition flex items-center gap-2 text-gray-700 shadow-sm"
             >
               <Filter size={18} /> Filters
             </button>
@@ -1001,17 +1011,17 @@ export default function Home() {
                   }}
                   className="group cursor-pointer"
                 >
-                  <div className="relative h-64 bg-gray-800 rounded-lg overflow-hidden mb-4">
-                    <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+                  <div className="relative h-80 bg-white rounded-md overflow-hidden mb-4 shadow-sm border border-gray-100">
+                    <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                     <div className="absolute top-3 right-3">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleFavorite(product.id);
                         }}
-                        className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition backdrop-blur"
+                        className="p-2 bg-white/80 hover:bg-white rounded-full transition shadow-sm"
                       >
-                        <Heart size={18} fill={favorites.includes(product.id) ? 'currentColor' : 'none'} color={favorites.includes(product.id) ? 'red' : 'white'} />
+                        <Heart size={18} fill={favorites.includes(product.id) ? '#B8860B' : 'none'} color={favorites.includes(product.id) ? '#B8860B' : '#666'} />
                       </button>
                     </div>
                     {product.originalPrice && (
@@ -1020,20 +1030,20 @@ export default function Home() {
                       </div>
                     )}
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-gray-300 transition">{product.name}</h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl font-bold">₹{product.price.toLocaleString()}</span>
+                  <h3 className="font-medium text-lg mb-1 text-gray-900">{product.name}</h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg font-semibold text-[#B8860B]">₹{product.price.toLocaleString()}</span>
                     {product.originalPrice && (
-                      <span className="text-gray-500 line-through text-sm">₹{product.originalPrice.toLocaleString()}</span>
+                      <span className="text-gray-400 line-through text-xs">₹{product.originalPrice.toLocaleString()}</span>
                     )}
                   </div>
-                  <p className="text-gray-400 text-sm mb-4">{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
+                  <p className="text-gray-500 text-xs mb-4">{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       addToCart(product);
                     }}
-                    className="w-full bg-white text-black py-2 rounded font-semibold hover:bg-gray-200 transition"
+                    className="w-full bg-white border border-gray-200 text-gray-800 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition shadow-sm"
                   >
                     Add to Cart
                   </button>
@@ -1049,16 +1059,16 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Customer Reviews</h2>
-            <p className="text-gray-400 text-lg">What our customers say about LYKA</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>Customer Reviews</h2>
+            <p className="text-gray-500 text-lg">What our customers say about LYKA</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1068,17 +1078,17 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-6 hover:bg-white/10 transition"
+                className="bg-[#FDFBF7] border border-gray-100 rounded-lg p-8 hover:shadow-md transition-all"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">★</span>
+                    <span key={i} className="text-[#B8860B]">★</span>
                   ))}
                 </div>
-                <p className="text-gray-300 mb-4 italic">"{testimonial.text}"</p>
-                <div className="border-t border-white/10 pt-4">
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-gray-400 text-sm">{testimonial.product}</p>
+                <p className="text-gray-600 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
+                <div className="border-t border-gray-100 pt-6">
+                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                  <p className="text-[#B8860B] text-sm font-medium">{testimonial.product}</p>
                 </div>
               </motion.div>
             ))}
@@ -1087,20 +1097,20 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-black">
+      <section id="about" className="py-24 px-4 bg-[#FDFBF7]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>About LYKA</h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>About LYKA</h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Since 2014, LYKA has been crafting elegant attire in the heart of Bandipora, Jammu & Kashmir. 
               We blend traditional Aari embroidery work with modern silhouettes to create pieces that celebrate 
               contemporary femininity while honoring our rich cultural heritage.
             </p>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-gray-600 text-lg leading-relaxed">
               Each piece is meticulously designed and handcrafted by skilled artisans, ensuring that every 
               garment tells a story of tradition, quality, and timeless elegance. We are committed to sustainable 
               practices and fair trade, supporting local communities and preserving traditional craftsmanship.
@@ -2077,41 +2087,36 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="bg-gray-950 border-t border-white/10 py-12 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="font-bold text-lg mb-4">About LYKA</h3>
-            <p className="text-gray-400 text-sm">Crafting elegant attire since 2014 in Bandipora, J&K. Traditional Aari work meets modern silhouettes.</p>
+      <footer id="contact" className="py-20 px-4 border-t border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-2xl font-bold mb-6 tracking-tight text-[#B8860B]">{websiteSettings.websiteName} FASHION</h3>
+            <p className="text-gray-500 max-w-sm leading-relaxed">Elevating traditional Kashmiri craftsmanship for the modern world. Our pieces are designed for eternity, blending heritage with contemporary style.</p>
           </div>
           <div>
-            <h3 className="font-bold text-lg mb-4">Collections</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-white transition">Suits</a></li>
-              <li><a href="#" className="hover:text-white transition">Bridals</a></li>
-              <li><a href="#" className="hover:text-white transition">Abayas</a></li>
-              <li><a href="#" className="hover:text-white transition">Sarees</a></li>
+            <h4 className="font-semibold mb-6 text-black uppercase tracking-wider text-sm">Quick Links</h4>
+            <ul className="space-y-3 text-gray-500 text-sm">
+              <li><a href="#" className="hover:text-[#B8860B] transition">Home</a></li>
+              <li><a href="#collections" className="hover:text-[#B8860B] transition">Collections</a></li>
+              <li><a href="#products" className="hover:text-[#B8860B] transition">Shop All</a></li>
+              <li><a href="#about" className="hover:text-[#B8860B] transition">Our Story</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-lg mb-4">Support</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition">FAQ</a></li>
-              <li><a href="#" className="hover:text-white transition">Shipping</a></li>
-              <li><a href="#" className="hover:text-white transition">Returns</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-lg mb-4">Follow Us</h3>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-gray-300 transition"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-gray-300 transition"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-gray-300 transition"><Linkedin size={20} /></a>
+            <h4 className="font-semibold mb-6 text-black uppercase tracking-wider text-sm">Connect With Us</h4>
+            <div className="flex gap-5">
+              <a href="https://instagram.com/lyka.fashion" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#B8860B] transition"><Instagram size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-[#B8860B] transition"><MessageCircle size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-[#B8860B] transition font-bold text-lg">f</a>
+            </div>
+            <div className="mt-8">
+              <p className="text-gray-500 text-sm">Bandipora, Jammu & Kashmir</p>
+              <p className="text-gray-500 text-sm mt-1">contact@lykafashion.com</p>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; 2026 LYKA. All rights reserved. Handcrafted with ❤️ in Bandipora, J&K</p>
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-100 text-center text-gray-400 text-xs tracking-widest uppercase">
+          © {new Date().getFullYear()} {websiteSettings.websiteName} FASHION. All rights reserved.
         </div>
       </footer>
     </div>
