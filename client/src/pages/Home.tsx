@@ -824,10 +824,10 @@ export default function Home() {
             autoPlay
             muted
             loop
-            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
+            className="absolute inset-0 w-full h-full object-cover opacity-50 contrast-125 saturate-110"
             src={websiteSettings.backgroundVideoUrl}
           />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/40" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.div
