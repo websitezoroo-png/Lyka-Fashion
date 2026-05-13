@@ -1683,28 +1683,37 @@ export default function Home() {
                 </h3>
                 
                 <div className="space-y-3 mb-6">
-                  <input
-                    type="text"
-                    placeholder="Code (e.g., SUMMER20)"
-                    value={newDiscountCode.code}
-                    onChange={(e) => setNewDiscountCode({ ...newDiscountCode, code: e.target.value.toUpperCase() })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                  />
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Discount Code</label>
+                    <input
+                      type="text"
+                      placeholder="e.g., SUMMER20"
+                      value={newDiscountCode.code}
+                      onChange={(e) => setNewDiscountCode({ ...newDiscountCode, code: e.target.value.toUpperCase() })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                    />
+                  </div>
                   <div className="grid grid-cols-2 gap-3">
-                    <input
-                      type="number"
-                      placeholder="Discount %"
-                      value={newDiscountCode.discountPercentage}
-                      onChange={(e) => setNewDiscountCode({ ...newDiscountCode, discountPercentage: Number(e.target.value) })}
-                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                    />
-                    <input
-                      type="number"
-                      placeholder="Max Uses"
-                      value={newDiscountCode.maxUses}
-                      onChange={(e) => setNewDiscountCode({ ...newDiscountCode, maxUses: Number(e.target.value) })}
-                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                    />
+                    <div>
+                      <label className="block text-sm font-semibold mb-1 text-gray-300">Discount %</label>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={newDiscountCode.discountPercentage}
+                        onChange={(e) => setNewDiscountCode({ ...newDiscountCode, discountPercentage: Number(e.target.value) })}
+                        className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold mb-1 text-gray-300">Max Uses</label>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={newDiscountCode.maxUses}
+                        onChange={(e) => setNewDiscountCode({ ...newDiscountCode, maxUses: Number(e.target.value) })}
+                        className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                      />
+                    </div>
                   </div>
                   <button
                     onClick={handleAddDiscountCode}
@@ -1823,40 +1832,54 @@ export default function Home() {
                   <Plus size={20} /> Add New Product
                 </h3>
                 <div className="space-y-3">
-                  <input
-                    type="text"
-                    placeholder="Product Name"
-                    value={newProduct.name}
-                    onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                  />
-                  <textarea
-                    placeholder="Product Description"
-                    value={newProduct.description}
-                    onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 h-20 resize-none"
-                  />
-                  <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Product Name</label>
                     <input
-                      type="number"
-                      placeholder="Price"
-                      value={newProduct.price}
-                      onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
-                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                    />
-                    <input
-                      type="number"
-                      placeholder="Stock"
-                      value={newProduct.stock}
-                      onChange={(e) => setNewProduct({ ...newProduct, stock: Number(e.target.value) })}
+                      type="text"
+                      placeholder="e.g., Embroidered Silk Suit"
+                      value={newProduct.name}
+                      onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
                       className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
                     />
                   </div>
-                  <select
-                    value={newProduct.category}
-                    onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white focus:outline-none focus:border-white/40"
-                  >
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Description</label>
+                    <textarea
+                      placeholder="Describe the product details..."
+                      value={newProduct.description}
+                      onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 h-20 resize-none"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-sm font-semibold mb-1 text-gray-300">Price (₹)</label>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={newProduct.price}
+                        onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
+                        className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold mb-1 text-gray-300">Stock Quantity</label>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={newProduct.stock}
+                        onChange={(e) => setNewProduct({ ...newProduct, stock: Number(e.target.value) })}
+                        className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Category</label>
+                    <select
+                      value={newProduct.category}
+                      onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white focus:outline-none focus:border-white/40"
+                    >
                     <option value="Suits">Suits</option>
                     <option value="Bridals">Bridals</option>
                     <option value="Abayas">Abayas</option>
@@ -1957,26 +1980,35 @@ export default function Home() {
                   <Plus size={20} /> Add New Sale
                 </h3>
                 <div className="space-y-3">
-                  <input
-                    type="text"
-                    placeholder="Sale Title"
-                    value={newSale.title}
-                    onChange={(e) => setNewSale({ ...newSale, title: e.target.value })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                  />
-                  <textarea
-                    placeholder="Sale Description"
-                    value={newSale.description}
-                    onChange={(e) => setNewSale({ ...newSale, description: e.target.value })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 h-16 resize-none"
-                  />
-                  <input
-                    type="number"
-                    placeholder="Discount %"
-                    value={newSale.discountPercentage}
-                    onChange={(e) => setNewSale({ ...newSale, discountPercentage: Number(e.target.value) })}
-                    className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
-                  />
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Sale Title</label>
+                    <input
+                      type="text"
+                      placeholder="e.g., Eid Special Sale"
+                      value={newSale.title}
+                      onChange={(e) => setNewSale({ ...newSale, title: e.target.value })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Sale Description</label>
+                    <textarea
+                      placeholder="Briefly describe the sale..."
+                      value={newSale.description}
+                      onChange={(e) => setNewSale({ ...newSale, description: e.target.value })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 h-16 resize-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-1 text-gray-300">Discount Percentage (%)</label>
+                    <input
+                      type="number"
+                      placeholder="0"
+                      value={newSale.discountPercentage}
+                      onChange={(e) => setNewSale({ ...newSale, discountPercentage: Number(e.target.value) })}
+                      className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
+                    />
+                  </div>
                   <div>
                     <label className="block text-sm font-semibold mb-2">Sale Image</label>
                     <input
