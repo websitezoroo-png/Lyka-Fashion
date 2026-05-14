@@ -631,15 +631,21 @@ export default function Home() {
   };
 
   // Admin Functions
-  const handleAddProduct = () => {
+  const handleAddProduct = async () => {
     if (newProduct.name && newProduct.price > 0) {
-      const product: Product = {
-        id: Math.max(...products.map(p => p.id), 0) + 1,
-        ...newProduct,
-      };
-      setProducts([...products, product]);
-      setNewProduct({ name: '', description: '', price: 0, category: 'Suits', imageUrl: '', stock: 0 });
-      setProductImagePreview(null);
+      try {
+        const res = await fetch('/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newProduct),
+        });
+        const data = await res.json();
+        setProducts([data, ...products]);
+        setNewProduct({ name: '', description: '', price: 0, category: 'Suits', imageUrl: '', stock: 0 });
+        setProductImagePreview(null);
+      } catch (error) {
+        console.error('Failed to add product:', error);
+      }
     }
   };
 
@@ -1802,7 +1808,15 @@ export default function Home() {
                     <input
                       type="text"
                       value={websiteSettings.websiteName}
-                      onChange={(e) => setWebsiteSettings({ ...websiteSettings, websiteName: e.target.value })}
+                      onChange={(e) => {
+                        const newSettings = { ...websiteSettings, websiteName: e.target.value };
+                        setWebsiteSettings(newSettings);
+                        fetch('/api/settings', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(newSettings),
+                        });
+                      }}
                       className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
                     />
                   </div>
@@ -1811,7 +1825,15 @@ export default function Home() {
                     <input
                       type="text"
                       value={websiteSettings.heroTitle}
-                      onChange={(e) => setWebsiteSettings({ ...websiteSettings, heroTitle: e.target.value })}
+                      onChange={(e) => {
+                        const newSettings = { ...websiteSettings, heroTitle: e.target.value };
+                        setWebsiteSettings(newSettings);
+                        fetch('/api/settings', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(newSettings),
+                        });
+                      }}
                       className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40"
                     />
                   </div>
@@ -1819,7 +1841,15 @@ export default function Home() {
                     <label className="block text-sm font-semibold mb-2">Hero Description</label>
                     <textarea
                       value={websiteSettings.heroDescription}
-                      onChange={(e) => setWebsiteSettings({ ...websiteSettings, heroDescription: e.target.value })}
+                      onChange={(e) => {
+                        const newSettings = { ...websiteSettings, heroDescription: e.target.value };
+                        setWebsiteSettings(newSettings);
+                        fetch('/api/settings', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(newSettings),
+                        });
+                      }}
                       className="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 h-24 resize-none"
                     />
                   </div>
